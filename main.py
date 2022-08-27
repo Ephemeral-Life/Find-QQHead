@@ -11,11 +11,16 @@ listPossible = []
 def getHead(number, id):
     url = 'http://q1.qlogo.cn/g?b=qq&nk=' + str(number) + '&s=100'
     response = request.urlopen(url)
-    if len(response.getheaders()) == 17:
-        request.urlretrieve(url, './getHead/getHead' + str(id) + '.jpg')
-        return True
-    else:
-        return False
+    for header in response.getheaders():
+        if header[0] == "X-Delay":
+            request.urlretrieve(url, './getHead/getHead' + str(id) + '.jpg')
+            return True
+    return False
+    # for header in response.getheaders():
+    #     if header[0] == "X-Delay":
+    #         request.urlretrieve(url, './getHead/getHead' + str(id) + '.jpg')
+    #         return True
+    # return False
 
 
 def aHash(img):
