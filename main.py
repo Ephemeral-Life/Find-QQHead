@@ -16,11 +16,11 @@ def getHead(number, id):
             request.urlretrieve(url, './getHead/getHead' + str(id) + '.jpg')
             return True
     return False
-    # for header in response.getheaders():
-    #     if header[0] == "X-Delay":
-    #         request.urlretrieve(url, './getHead/getHead' + str(id) + '.jpg')
-    #         return True
-    # return False
+    # if len(response.getheaders()) == 17:
+    #     request.urlretrieve(url, './getHead/getHead' + str(id) + '.jpg')
+    #     return True
+    # else:
+    #     return False
 
 
 def aHash(img):
