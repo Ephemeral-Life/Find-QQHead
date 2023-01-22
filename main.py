@@ -72,7 +72,7 @@ def work(id, begin, end):
                 with open(filename, 'a') as file_object:
                     file_object.write('账号：' + QQnumberInit + '，相似度：' + str(100 - n) + '%\n')
             QQnumberInit = str(int(QQnumberInit) + 1)
-        except AssertionError:
+        except (AssertionError, FileNotFoundError):
             print(str(id) + '号线程\t剩余：' + str(int(end - int(QQnumberInit))) + '次，账号：', int(QQnumberInit), '不存在')
             QQnumberInit = str(int(QQnumberInit) + 1)
 
